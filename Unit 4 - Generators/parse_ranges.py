@@ -1,10 +1,8 @@
 def parse_ranges(ranges_string: str):
     split_generator = (n.split('-') for n in ranges_string.split(','))
-    nums = []
-    for start, stop in split_generator:
-        for num in range(int(start), int(stop) + 1):
-            nums.append(num)
-    return nums
+    range_generator = (num for start, stop in split_generator for num in range(
+        int(start), int(stop) + 1))
+    return range_generator
 
 
 def main():
