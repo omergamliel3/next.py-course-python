@@ -28,13 +28,13 @@ class MusicNotes:
         # raise Exception to stop iteration when out of reach
         if self._index_octabs == OCTABS_NUM and self._index_freq >= len(self._freqs) - 1:
             raise StopIteration
-        # increment obtabs index when reaching the end of the notes
+        # increment octabs index when reaching the end of the freqs list
         elif self._index_freq >= len(self._freqs) - 1:
             self._index_freq = -1
             self._index_octabs += 1
         # increment freq index every iteration
         self._index_freq += 1
-        # return the current freq from freq list, multiple by 2 ^ (current octab - 1)
+        # return the current freq from freq list, multiply by 2 ^ (current octab - 1)
         return self._freqs[self._index_freq][1] * (2 ** (self._index_octabs - 1))
 
 
